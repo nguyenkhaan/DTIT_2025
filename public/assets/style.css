@@ -71,7 +71,7 @@ html {
 }
 .navbar-item i {
     color: var(--white-color); 
-    font-size: 1.7rem; 
+    font-size: 1.4rem; 
     margin-right: 10px; 
 } 
 .navbar-item span {
@@ -102,7 +102,7 @@ html {
     border-radius: 6px; 
     margin-bottom: 18px; 
     text-align: center; 
-    line-height: 70px;
+    line-height: 80px;
     font-size: 2.2rem; 
     background-color: var(--button-color);
     cursor: pointer; 
@@ -141,10 +141,10 @@ html {
     height: 20px;  
 } 
 .member__name {
-    font-size: 1.8rem; 
+    font-size: 1.6rem; 
 }
 .member__score {
-    font-size: 1.8rem; 
+    font-size: 1.6rem; 
     color: var(--text-color); 
 }
 /*CSS Cho chan trang*/ 
@@ -232,7 +232,7 @@ html {
     font-weight: 800;
 }
 .modal__question__heading {
-    font-size: 2.2rem; 
+    font-size: 2rem; 
     color: var(--main-color); 
     font-weight: 800;
 }
