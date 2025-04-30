@@ -2,10 +2,9 @@ import modalHeading from "./Component/modalHeading.js";
 import modalQuestion from "./Component/modalQuestion.js";
 import questionChoiceList from "./Component/questionChoiceList.js";
 const modal = document.querySelector('.app__modal'); 
-function modalQuestionHTMLMaker(content , args) 
+function modalQuestionHTMLMaker(content) 
 {
-    let ans = modalQuestion(content); 
-    ans += questionChoiceList(args); 
+    let ans = modalQuestion(content);  
     return ans; 
 }
 export default function makePopup(level , content , args)
@@ -16,9 +15,10 @@ export default function makePopup(level , content , args)
     modalHeader.innerHTML = modalHeading(level); 
     //Xử lí nội dung câu hỏi 
     const modalQues = document.querySelector('.modal__question__box'); 
-    modalQues.innerHTML = modalQuestionHTMLMaker(content , args)
+    modalQues.innerHTML = modalQuestionHTMLMaker(content)
     const closeIcon = document.querySelector('.modal__header i') 
     closeIcon.onclick = () => {
+        console.log('Hello world'); 
         modal.classList.add('--non-active')
     }
 }
