@@ -201,7 +201,7 @@ html {
     background-color: rgba(0, 0, 0, 0.4); 
     position: fixed; 
     display: flex; 
-    align-items: center;
+    align-items: center; 
     justify-content: center;
     z-index: 10;
 }
@@ -306,7 +306,7 @@ html {
 }
 @keyframes floatLeft {
     from {
-        transform: translateX(-800px); 
+        transform: translateX(-1000px); 
     } 
     to {
         transform: translateX(0);
