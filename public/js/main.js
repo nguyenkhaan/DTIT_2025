@@ -1,19 +1,25 @@
 import makeQuestionBoard from "./36questions.js" 
 import makeFooter from "./makeFooter.js"
 import makeNavbar from "./makeNavbar.js"
+import makeTurnButton from "./makeTurnButton.js"
 import makeTeam from "./team.js"
 import { chooseTeam } from "./team.js"
-import makePopup from "./makePopup.js"
 const body = document.querySelector('body')
+import questionLevelShow from "./questionLevelShow.js"
 //Hiển thị các thành phần cơ bản: navbar, footer !!! Đừng chạm 
 function baseRender() 
 {
     makeNavbar(); 
     makeFooter(); 
+   // makeTurnButton(); 
+   questionLevelShow(); 
 }
 baseRender(); 
 /*----------------------------------------------------------------------------------------------------------*/
 //Hiển thị 36 nút questions, giá trị trả về là mảng quản lí 36 questions 
+import makePopup from "./makePopup.js"
+const turnButtons = document.querySelectorAll('.app__turn__button');
+console.log(turnButtons); 
 const questions = makeQuestionBoard(); 
 console.log(questions); 
 

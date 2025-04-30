@@ -23,6 +23,7 @@ html {
     --board-color: #F1EFEC; 
     --hover-color: #37B7C3;
     --text-color: #727D73; 
+    --custom-blue-color: #3A59D1; 
 }
 
 .app {
@@ -111,6 +112,26 @@ html {
 .question__col:hover {
     transform: translateY(-5px);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+/*CSS Cho phan question board */ 
+.question-board__heading i {
+    color: var(--custom-blue-color); 
+    cursor: pointer; 
+    font-size: 2.4rem; 
+}
+.question__col {
+    position: relative;
+}
+.level {
+    position: absolute; 
+    top: 26%; 
+    left: 78%; 
+    font-size: 1.8rem; 
+    font-weight: 600;
+    font-style: italic;
+    animation: fadeIn 0.6s linear; 
+    text-shadow: 1px 1px 0.8px;
+    color: var(--main-color); 
 }
 /*CSS cho phan member*/ 
 .member__lists {
@@ -206,7 +227,8 @@ html {
 .app__turn__button  {
     padding: 36px; 
     border-radius: 100%; 
-    box-shadow: 1.2px 1.2px 0.8px;
+    box-shadow: 1.2px 1.2px 1px;
+    border: none; 
    
 }
 /*CSS Cho phan Modal */ 
@@ -311,6 +333,14 @@ html {
     }
     to {
         opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1; 
+    }
+    to {
+        opacity: 0; 
     }
 }
 @keyframes zoom {
