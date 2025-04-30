@@ -1,7 +1,8 @@
 import modalHeading from "./Component/modalHeading.js";
 import modalQuestion from "./Component/modalQuestion.js";
 import questionChoiceList from "./Component/questionChoiceList.js";
-const modal = document.querySelector('.app__modal'); 
+const modal = document.querySelector('.app__modal');  
+import changeTurn from "./turnAndScore.js";
 function modalQuestionHTMLMaker(content) 
 {
     let ans = modalQuestion(content);  
@@ -15,6 +16,7 @@ function modalQuestionAnsHTMLMaker(args)
 export default function makePopup(level , content , args)
 {
     //Tiêu đề câu hỏi: Câu hỏi khó, dễ, trung bình,... 
+    changeTurn(); 
     modal.classList.remove('--non-active'); 
     const modalHeader = document.querySelector('.modal__header');
     modalHeader.innerHTML = modalHeading(level); 
@@ -27,7 +29,6 @@ export default function makePopup(level , content , args)
     //Sự biến mất của pop up 
     const closeIcon = document.querySelector('.modal__header i') 
     closeIcon.onclick = () => {
-        console.log('Hello world'); 
         modal.classList.add('--non-active')
     }
 }
