@@ -366,15 +366,23 @@ html {
     background-color: red !important;  
 } 
 .--green {
-    background-color: green;   
+    background-color: green !important;   
 } 
 .--yellow {
     background-color: yellow !important;  
 } 
 .--blue {
     background-color: blue !important; 
-    color: blue; 
 } 
+.--orange {
+    background-color: #FE7743 !important;
+}
+.--pink {
+    background-color: #FF90BB !important;
+}
+.--purple {
+    background-color: #4A102A !important;
+}
 .--black {
     background-color: black; 
     color: black; 

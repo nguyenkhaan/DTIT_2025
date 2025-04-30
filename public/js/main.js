@@ -1,64 +1,69 @@
 import makeQuestionBoard from "./36questions.js" 
 import makeFooter from "./makeFooter.js"
 import makeNavbar from "./makeNavbar.js"
-import makeTurnButton from "./makeTurnButton.js"
 import makeTeam from "./team.js"
-import { chooseTeam } from "./team.js"
 const body = document.querySelector('body')
 import questionLevelShow from "./questionLevelShow.js"
-//Hiển thị các thành phần cơ bản: navbar, footer !!! Đừng chạm 
+/*--------------------------------------------1. BASE RENDER ---------------------------------------------*/
+//Hiển thị các thành phần cơ bản: navbar, footer !!! No Touch !!
 function baseRender() 
 {
     makeNavbar(); 
     makeFooter(); 
-   // makeTurnButton(); 
-   questionLevelShow(); 
+    questionLevelShow(); 
 }
 baseRender(); 
-/*----------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------2. QUẢN LÍ 36 BUTTONS ---------------------------------------------*/
 //Hiển thị 36 nút questions, giá trị trả về là mảng quản lí 36 questions 
 import makePopup from "./makePopup.js"
 const turnButtons = document.querySelectorAll('.app__turn__button');
-console.log(turnButtons); 
 const questions = makeQuestionBoard(); 
-console.log(questions); 
-
-//Danh sách đội tham gia 
+//Mảng questions quản lí 36 cái button 
+/*--------------------------------------------3. DANH SÁCH ĐỘI THAM GIA ------------------------------------------------*/
+function addTeam(teams, team) {
+    let obj = {
+        team: team, 
+        name: team.querySelector('.member__wrapper').querySelector('.member__name').innerText, 
+        score: 0 
+    } 
+    teams.push(obj) 
+}  
+//Tạo các team bằng hàm makeTeam 
 const team1 = makeTeam('Gozyuu Wolf' , 50 , 'red')
 const team2 = makeTeam('Gozyuu Leon' , 50 , 'blue') 
+//Sau khi tạo các team thì thêm chung vào mảng theo cú pháp bên dưới 
 let teams = []; 
-teams.push(team1); 
-teams.push(team2); 
+addTeam(teams , team1) 
+addTeam(teams , team2) 
 export {teams}
-/* Hàm chooseTeam: Đây là lượt của đội nào? 
-- Đối số 1: Đội hiện tại đang tới lượt (VD tới lượt team1 thì truyền team1). 
-- Đối số 2: Mảng quản lí toàn bộ các đội 
-*/ 
-
+/*------------------------------------------------4. XỬ LÍ CÁC CÂU HỎI ---------------------------------------------------------*/
 //Hàm random câu hỏi từ ngân hàng câu hỏi.  
-//Return 1 obj gồm header (tiêu đề câu hỏi), content (Nội dung câu hỏi), choiceList (các lựa chọn A, B, C, D)
+//Return 1 obj gồm header (tiêu đề câu hỏi), content (Nội dung câu hỏi), choiceList (các lựa chọn A, B, C, D), id (mã câu hỏi), score (điểm số câu hỏi đó)
 function randomQuestion() 
 {
-    //
     const obj = {}; 
-    obj.header = 'Câu hỏi khó'
+    obj.header = 'Câu hỏi 1'
     obj.content = 'Một process đang ở trạng thái running, nếu process này thực thi theo bộ lập lịch Round Robin, \
                     nếu có sự kiện interrupt time slice xảy ra thì process này chuyển đến trạng thái nào?'; 
     obj.choiceList = ['A. Gặp hàm exit()' , 'A. Gặp hàm exit()' , 'A. Gặp hàm exit()' , 'A. Gặp hàm exit()']; 
+    obj.id = 1;     //Mã câu hỏi 
+    obj.score = 10; //Điểm số của câu hỏi 
     return obj; 
 }
-//Xử lí sư kiện: Khi Click vào 1 question trên Board thì hiện ra Popup 
+//Hiện popUp khi click vào 1 button trong 36 buttons 
 function handleQuestionButtonClick() 
 {
     for (let i of questions) 
     {
         i.onclick = () => {
-            const questionObj = randomQuestion(); 
-            makePopup(questionObj.header , questionObj.content , questionObj.choiceList); 
+            const questionObj = randomQuestion(); //Hàm random question từ ngân hàng câu hỏi 
+            makePopup(questionObj.header , questionObj.content , questionObj.choiceList , questionObj.id , questionObj.score);   
             /*Ham hiển thị popUp câu hỏi 
                 - Đối số 1: Tiêu đề câu hỏi (Ex: Câu hỏi khó, dễ, trung bình...) 
                 - Đối số 2: Nội dung câu hỏi 
                 - Đối số 3: 4 sự lựa chọn A , B , C , D
+                - Đối số 4: idQuestion, dùng để biết đội nào được hỏi câu nào 
+                - Đối số 5: Điểm số của câu hỏi đó? Là câu dễ hay khó từ đó phân chia mức điểm phù hợp 
             */ 
         }
     }

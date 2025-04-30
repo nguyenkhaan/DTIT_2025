@@ -1,0 +1,20 @@
+[
+  {
+    "team": "Gozyuu Wolf",
+    "idQuestion": 1,
+    "res": 1,
+    "currentScore": 10
+  },
+  {
+    "team": "Gozyuu Leon",
+    "idQuestion": 1,
+    "res": 1,
+    "currentScore": 10
+  },
+  {
+    "team": "Gozyuu Wolf",
+    "idQuestion": 1,
+    "res": 1,
+    "currentScore": 20
+  }
+]
