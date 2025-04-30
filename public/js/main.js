@@ -29,6 +29,7 @@ const team2 = makeTeam('Gozyuu Leon' , 50 , 'blue')
 let teams = []; 
 teams.push(team1); 
 teams.push(team2); 
+export {teams}
 /* Hàm chooseTeam: Đây là lượt của đội nào? 
 - Đối số 1: Đội hiện tại đang tới lượt (VD tới lượt team1 thì truyền team1). 
 - Đối số 2: Mảng quản lí toàn bộ các đội 
