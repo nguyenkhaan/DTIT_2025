@@ -9,7 +9,7 @@ export default function changeTurn() //close pop_up and changeTurn()
     let current = (turn + 1) % teamSize; 
         chooseTeam(teams[current].team , teams); 
     turn = (turn + 1) % 3;  
-    for (let i of turnButtons) i.classList.remove('--red' , '--yellow' , '--blue' , 'animation-changeColor'); 
+    for (let i of turnButtons) i.classList.remove('--red' , '--yellow' , '--green' , 'animation-changeColor'); 
     switch (turn) {
         case 0: turnButtons[0].classList.add('--red' , 'animation-changeColor');  break;  
         case 1: turnButtons[1].classList.add('--yellow' , 'animation-changeColor');  break; 

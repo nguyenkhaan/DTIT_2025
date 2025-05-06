@@ -326,6 +326,10 @@ html {
     border-radius: 8px;
     color: var(--white-color); 
 }
+.modal__button:hover {
+    transform: scale(1.1); 
+    transition: transform 0.3s linear; 
+}
 /*Animation and Modify CSS*/ 
 @keyframes fadeIn {
     from {
@@ -398,8 +402,16 @@ html {
     display: none; 
 }
 .--true-button {
+    cursor: pointer; 
     background-color: #00AD7C; 
 } 
 .--false-button {
+    cursor: pointer; 
     background-color: #B31312;
+} 
+.--button-choose-animation {
+    animation: button-choose-animation 0.3s linear; 
+} 
+@keyframes button--choose-animation {
+    
 }
