@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/assets/base.css"> 
+    <link rel="stylesheet" href="./public/assets/base.css">
     <link rel="stylesheet" href="./public/assets/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./src/output.css">
     <title>Đấu trường IT 2025</title>
     <style>
         .roboto-font {
             font-family: "Roboto", sans-serif;
             font-optical-sizing: auto;
-            font-weight: 500; 
+            font-weight: 500;
             font-style: normal;
         }
+
         .roboto-font-light {
             font-family: "Roboto", sans-serif;
             font-optical-sizing: auto;
-            font-weight: 400; 
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .clock-fonts {
+            font-family: "Orbitron", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
             font-style: normal;
         }
     </style>
 </head>
+
 <body>
     <nav class="app__navbar">
         <div class="grid wide" style="width: 1200px">
@@ -35,10 +50,12 @@
             </div>
         </div>
     </nav>
-    <div class="app__section grid wide" style="width: 100%">
-        <section class="row gutter">
+    <!--main body here-->
+    <div class="app__section grid wide " style="width: 100%">
+        <section class="row gutter max-md:flex max-md:flex-col max-md:w-full">
             <div class="app__question-board col l8 --section__board">
-                <h2 class="question-board__heading roboto-font">MAIN BOARD<i class="fa-solid fa-circle-question"></i></h2>
+                <h2 class="question-board__heading roboto-font">MAIN BOARD<i class="fa-solid fa-circle-question"></i>
+                </h2>
                 <div class="question-board__questions grid" style="width: 100%">
                     <!-- Rows of questions -->
                     <!-- Repeat for other rows -->
@@ -61,33 +78,38 @@
             </div>
         </section>
 
-        
+
     </div>
-    
+
     <div class="app__modal --non-active">
-        <div class="modal__question">
-            <div class="modal__header">
-                
+        <div class="modal__wrapper flex gap-4 max-w-[85%]">
+
+            <div class="modal__question">
+                <div class="modal__header">
+
+                </div>
+                <div class="modal__question__box">
+
+                    <!--Câu hỏi được render ở đây, tôi chỉ muốn câu hỏi thôi, câu trả lời và các cái khác thì được đẩy qua bên kia-->
+                </div>
             </div>
-            <div class="modal__question__box"> 
-                <!--Câu hỏi được render ở đây, tôi chỉ muốn câu hỏi thôi, câu trả lời và các cái khác thì được đẩy qua bên kia-->
-            </div> 
-        </div>
-        <div class="modal__question__sub-item">
-            <!--Cac lua chon duoc render o day-->
-            <div class="question__choice__wrapper"></div>   <!--Render cai noi dung do vo day-->
-            <!--Button cho question-->
-            <div class="modal__question__button">
-                
-                <button class="modal__button --true-button">
-                    <i class="fa-solid fa-thumbs-up"></i>
-                </button>
-                <button class="modal__button --false-button">
-                    <i class="fa-solid fa-thumbs-down"></i>
-                </button>
+            <div class="modal__question__sub-item">
+                <!--Cac lua chon duoc render o day-->
+                <div class="question__choice__wrapper"></div> <!--Render cai noi dung do vo day-->
+                <!--Button cho question-->
+                <div class="modal__question__button">
+
+                    <button class="modal__button --true-button">
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </button>
+                    <button class="modal__button --false-button">
+                        <i class="fa-solid fa-thumbs-down"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-    <script type = "module" src="./public/js/main.js"></script>
+    <script type="module" src="./public/js/main.js"></script>
 </body>
+
 </html>

@@ -412,6 +412,17 @@ html {
 .--button-choose-animation {
     animation: button-choose-animation 0.3s linear; 
 } 
+.end-time {
+    animation: end-time 0.8s linear infinite alternate;
+}
 @keyframes button--choose-animation {
     
+}
+@keyframes end-time {
+    from {
+        transform: translateY(-16px); 
+    } 
+    to {
+        transform: translateY(16px); 
+    }
 }

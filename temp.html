@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+        .clock-fonts {
+          font-family: "Orbitron", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 600; 
+          font-style: normal;
+        }
+    </style>
+</head>
+
+<body class="w-full h-screen">
+    <!--tao dong ho-->
+    <div class="flex items-center justify-between count-down gap-2 font-monos text-base text-red-500 w-46 h-20">
+        <div class="hours flex-2 h-full text-center ">
+            <span class="hours block m-auto font-mono clock-fonts font-bold h-full leading-20 w-full text-3xl">00</span>
+        </div>
+        <span class = "leading-18 block h-full text-xl clock-fonts  text-gray-700">:</span>
+        <div class="hours flex-2 h-full text-center ">
+            <span class="hours block m-auto font-mono font-bold clock-fonts  h-full leading-20 w-full text-3xl">00</span>
+        </div>
+        <span class = "leading-18 block h-full text-xl clock-fonts  text-gray-700">:</span>
+        <div class="hours flex-2 h-full text-center">
+            <span class="hours block m-auto font-mono font-bold h-full clock-fonts  leading-20 w-full text-3xl">00</span>
+        </div>
+    </div>
+</body>
+
+</html>
