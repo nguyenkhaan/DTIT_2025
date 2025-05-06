@@ -1,4 +1,4 @@
-export default function footer(name , link) {
+export default function footer(name, link) {
     return `
         <footer class="app__footer">
         <div class="grid wide" style="width: 1200px">

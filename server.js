@@ -1,12 +1,12 @@
-const express = require('express') 
+const express = require('express')
 const path = require('path');
-const server = express() 
+const server = express()
 
 server.use(express.static(path.join(__dirname, '.')));
 server.use(express.json());
 
-server.get('/' , (req , res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+server.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
 })
 
 
@@ -30,13 +30,13 @@ function writeArrayToFile(array, filePath) {
 }
 
 
-server.post('/' , (req , res) => {
-    const data = req.body; 
-    console.log(data); 
-    writeArrayToFile(data , './logStory.txt'); 
-    res.json('Ghi thanh cong')
+server.post('/', (req, res) => {
+  const data = req.body;
+  console.log(data);
+  writeArrayToFile(data, './logStory.txt');
+  res.json('Ghi thanh cong')
 })
 
 server.listen(3000, () => {
-    console.log('Server chạy tại http://localhost:3000');
-  });
+  console.log('Server chạy tại http://localhost:3000');
+});
