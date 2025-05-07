@@ -5,6 +5,7 @@ const modal = document.querySelector('.app__modal');
 const modalWrapper = document.querySelector('.modal__wrapper')
 import changeTurn from "./turnAndScore.js";
 import { updateInfoTeam } from "./turnAndScore.js";
+const bar = document.getElementById('time-bar');
 function modalQuestionHTMLMaker(content) {
     let ans = modalQuestion(content);
     return ans;
@@ -18,13 +19,11 @@ let timeoutId = null; // Biến toàn cục hoặc được dùng chung để qu
 function startTimer(delay) {
     const duration = delay;
     let timeLeft = duration;
-    const bar = document.getElementById('time-bar');
-
     function updateBar() {
         const percent = timeLeft / duration;
         bar.style.transform = `scaleX(${percent})`;
 
-        if (timeLeft <= 0) {
+        if (timeLeft < 0) {
             modalWrapper.classList.add('end-time');
             return;
         }
@@ -53,7 +52,13 @@ export default function makePopup(header, content, args, idQuestion, scoreBonus)
     if (scoreBonus == 10) delay = 1 //Câu dễ
     if (scoreBonus == 20) delay = 2 //Câu trung bình 
     if (scoreBonus == 30) delay = 3 //Câu khó 
-    startTimer(10) //Đếm thời gian câu hỏi 
+    document.onkeydown = function(e) {
+        if (e.key === 'Enter') {
+            startTimer(10); 
+        }
+    }
+    // startTimer(10); 
+    //Đếm thời gian câu hỏi 
     //Xử lí câu trả lời là đúng hay sai và ghi vào log 
     const trueButton = document.querySelector('.--true-button');
     const falseButton = document.querySelector('.--false-button');
@@ -70,6 +75,8 @@ export default function makePopup(header, content, args, idQuestion, scoreBonus)
         clearTimeout(timeoutId); // Hủy timeout hiện tại
         modalWrapper.classList.remove('end-time')
         modal.classList.add('--non-active')
+        const percent = '100%'
+        bar.style.transform = `scaleX(${percent})`;   //Thực hiện vẽ lại thời gian ban đầu cho dồng hồ 
     }
 }
 //**
