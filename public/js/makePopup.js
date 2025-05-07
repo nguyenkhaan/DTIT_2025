@@ -13,22 +13,24 @@ function modalQuestionAnsHTMLMaker(args) {
     let ans = questionChoiceList(args);
     return ans;
 }
-function startTimer(delay) {   //Hàm đếm ngược thời gian 
+let timeoutId = null; // Biến toàn cục hoặc được dùng chung để quản lý hủy timeout
+
+function startTimer(delay) {
     const duration = delay;
     let timeLeft = duration;
     const bar = document.getElementById('time-bar');
 
     function updateBar() {
-        const percent = timeLeft / duration;    //Thời gian còn lại chia cho tổng thời gian sẽ ra phần trăm scale X còn lại 
-        bar.style.transform = `scaleX(${percent})`;   //Tính toàn phần trăm của scalX 
+        const percent = timeLeft / duration;
+        bar.style.transform = `scaleX(${percent})`;
 
         if (timeLeft <= 0) {
-            setTimeout(() => { modalWrapper.classList.add('end-time') }, 1000); //Hết thời gian thì cho modalWrapper animation lên xuống 
+            modalWrapper.classList.add('end-time');
             return;
         }
 
         timeLeft--;
-        setTimeout(updateBar, 1000);
+        timeoutId = setTimeout(updateBar, 1000); // Gán vào biến để sau này còn hủy được
     }
 
     updateBar();
@@ -65,6 +67,7 @@ export default function makePopup(header, content, args, idQuestion, scoreBonus)
     //Sự biến mất của pop up 
     const closeIcon = document.querySelector('.modal__header i')
     closeIcon.onclick = () => {
+        clearTimeout(timeoutId); // Hủy timeout hiện tại
         modalWrapper.classList.remove('end-time')
         modal.classList.add('--non-active')
     }
