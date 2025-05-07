@@ -21,7 +21,7 @@ function chooseTeam(team, args) {
     team.classList.add('--choose')
 }
 function whichTeam(team) {
-    
+
 }
 /* Hàm chooseTeam: Đây là lượt của đội nào? 
 - Đối số 1: Đội hiện tại đang tới lượt (VD tới lượt team1 thì truyền team1). 

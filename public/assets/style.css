@@ -6,8 +6,9 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  background-image: url("https://via.placeholder.com/1920x1080"); /* Hình nền */
+  background-image: url("../images/background.jpg"); /* Hình nền */
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   font-family: "Arial", sans-serif;
@@ -108,8 +109,6 @@ html {
   font-size: 2.2rem;
   background-color: var(--button-color);
   cursor: pointer;
-   
-   
 }
 .question__col:hover {
   transform: translateY(-5px);
@@ -392,13 +391,13 @@ html {
   color: black;
 }
 .--ct-red {
-  background-color: #FF0B55; 
-} 
+  background-color: #ff0b55;
+}
 .--ct-yellow {
-  background-color: #FCF259; 
+  background-color: #fcf259;
 }
 .--ct-green {
-  background-color: #9EDF9C; 
+  background-color: #9edf9c;
 }
 .--default-color {
   background-color: var(--white-color);
