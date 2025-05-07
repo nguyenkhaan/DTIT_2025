@@ -28,12 +28,18 @@ function addTeam(teams, team) {
     teams.push(obj)
 }
 //Tạo các team bằng hàm makeTeam 
-const team1 = makeTeam('Gozyuu Wolf', 50, 'red')
-const team2 = makeTeam('Gozyuu Leon', 50, 'blue')
+const team1 = makeTeam('Gozyuu Wolf', 0, 'red')
+const team2 = makeTeam('Gozyuu Leon', 0, 'blue')
+const team3 = makeTeam('Gozyuu Tyrano' , 0, 'yellow') 
+const team4 = makeTeam('Gozyuu Eagle', 0, 'green') 
+const team5 = makeTeam('Gozyuu Unicorn' , 0, 'black') 
 //Sau khi tạo các team thì thêm chung vào mảng theo cú pháp bên dưới 
 let teams = [];
 addTeam(teams, team1)
 addTeam(teams, team2)
+addTeam(teams, team3) 
+addTeam(teams, team4) 
+addTeam(teams, team5) 
 export { teams }
 /*------------------------------------------------4. XỬ LÍ CÁC CÂU HỎI ---------------------------------------------------------*/
 //Hàm random câu hỏi từ ngân hàng câu hỏi.  
