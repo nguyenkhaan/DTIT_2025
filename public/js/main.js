@@ -30,16 +30,16 @@ function addTeam(teams, team) {
 //Tạo các team bằng hàm makeTeam 
 const team1 = makeTeam('Gozyuu Wolf', 0, 'red')
 const team2 = makeTeam('Gozyuu Leon', 0, 'blue')
-const team3 = makeTeam('Gozyuu Tyrano' , 0, 'yellow') 
-const team4 = makeTeam('Gozyuu Eagle', 0, 'green') 
-const team5 = makeTeam('Gozyuu Unicorn' , 0, 'black') 
+const team3 = makeTeam('Gozyuu Tyrano', 0, 'yellow')
+const team4 = makeTeam('Gozyuu Eagle', 0, 'green')
+// const team5 = makeTeam('Gozyuu Unicorn', 0, 'black')
 //Sau khi tạo các team thì thêm chung vào mảng theo cú pháp bên dưới 
 let teams = [];
 addTeam(teams, team1)
 addTeam(teams, team2)
-addTeam(teams, team3) 
-addTeam(teams, team4) 
-addTeam(teams, team5) 
+addTeam(teams, team3)
+addTeam(teams, team4)
+// addTeam(teams, team5)
 export { teams }
 /*------------------------------------------------4. XỬ LÍ CÁC CÂU HỎI ---------------------------------------------------------*/
 //Hàm random câu hỏi từ ngân hàng câu hỏi.  
@@ -59,7 +59,7 @@ function handleQuestionButtonClick() {
     for (let i of questions) {
         i.onclick = () => {
             const questionObj = randomQuestion(); //Hàm random question từ ngân hàng câu hỏi 
-            makePopup(questionObj.header, questionObj.content, questionObj.choiceList, questionObj.id, questionObj.score);
+            makePopup(i, questionObj.header, questionObj.content, questionObj.choiceList, questionObj.id, questionObj.score);
             /*Ham hiển thị popUp câu hỏi 
                 - Đối số 1: Tiêu đề câu hỏi (Ex: Câu hỏi khó, dễ, trung bình...) 
                 - Đối số 2: Nội dung câu hỏi 

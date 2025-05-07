@@ -1,6 +1,7 @@
 import modalHeading from "./Component/modalHeading.js";
 import modalQuestion from "./Component/modalQuestion.js";
 import questionChoiceList from "./Component/questionChoiceList.js";
+import { colorClass } from "./public.js";
 const modal = document.querySelector('.app__modal');
 const modalWrapper = document.querySelector('.modal__wrapper')
 import changeTurn from "./turnAndScore.js";
@@ -34,10 +35,24 @@ function startTimer(delay) {
 
     updateBar();
 }
-export default function makePopup(header, content, args, idQuestion, scoreBonus) //Bo sung them hai tham so idQuestion va score 
+function markButton(button , currentTeam) 
 {
+    button.onclick = null
+    button.style.pointerEvents = "none"
+    //Xử lí màu cho đội hiện tại nếu đội đó đã trả lời đúng 
+    switch (currentTeam.teamID) {
+        case 0: button.classList.add(colorClass[0]); break; 
+        case 1: button.classList.add(colorClass[1]); break; 
+        case 2: button.classList.add(colorClass[2]); break; 
+        case 3: button.classList.add(colorClass[3]); break; 
+    }
+}
+export default function makePopup(buttonID, header, content, args, idQuestion, scoreBonus) //Bo sung them hai tham so idQuestion va score 
+{
+    //console.log(buttonID); 
     //Tiêu đề câu hỏi: Câu hoi 1, câu hỏi 2, câu hỏi 3, câu hỏi 4,... 
     let currentTeam = changeTurn();
+    console.log(currentTeam) 
     modal.classList.remove('--non-active');
     const modalHeader = document.querySelector('.modal__header');
     modalHeader.innerHTML = modalHeading(header);
@@ -57,6 +72,7 @@ export default function makePopup(header, content, args, idQuestion, scoreBonus)
             startTimer(10); 
         }
     }
+    console.log(currentTeam) 
     // startTimer(10); 
     //Đếm thời gian câu hỏi 
     //Xử lí câu trả lời là đúng hay sai và ghi vào log 
@@ -64,10 +80,15 @@ export default function makePopup(header, content, args, idQuestion, scoreBonus)
     const falseButton = document.querySelector('.--false-button');
     trueButton.onclick = function () {
         //Thêm hiệu ứng ấn vào button (maybe sẽ code sau, cái này hiện chưa code)
-        updateInfoTeam(trueButton, currentTeam, idQuestion, scoreBonus);
+        //Tô màu cho cái button đã được nhấn ở đây 
+        markButton(buttonID , currentTeam) 
+
+       // updateInfoTeam(trueButton, currentTeam, idQuestion, scoreBonus);
     }
     falseButton.onclick = function () {
-        updateInfoTeam(falseButton, currentTeam, idQuestion, 0);
+         
+        //updateInfoTeam(falseButton, currentTeam, idQuestion, 0);
+        //Sau này, muốn cậ nhât log story thì hãy mở comment 2 dòng lệnh này ở hai nút true và false button 
     }
     //Sự biến mất của pop up 
     const closeIcon = document.querySelector('.modal__header i')

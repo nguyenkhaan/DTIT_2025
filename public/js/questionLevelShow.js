@@ -1,7 +1,7 @@
 const color = (ch) => {
     if (ch == '?') return '#FF0B55' 
     else if (ch == '!') return '#FCF259'
-    return '#9EDF9C'
+    return '#9EDF9C'     //Cái này tôi gán cứng là 3 màu tượng trưng cho dộ khó 
 }
 const show = function (args, board) {
     for (let i of board) {
@@ -19,7 +19,7 @@ const unshow = function (args, board) {
     setTimeout(() => {
         for (let i = 0; i < 36; ++i) {
             args[i].classList.add('--non-active'); 
-            board[i].style.backgroundColor = '#fff'; 
+            board[i].style.backgroundColor = 'var(--button-color)'; 
         }
     }, 600);
 }

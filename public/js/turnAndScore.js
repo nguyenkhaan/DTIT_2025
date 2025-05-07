@@ -1,6 +1,7 @@
 import { chooseTeam } from "./team.js";
 import { teams } from "./main.js";
 import { addLog, printLog } from "./log.js";
+import { colorClass } from "./public.js";
 let turn = -1;    //Khoi tao ban dau chua co luot 
 const turnButtons = document.querySelectorAll('.app__turn__button');
 export default function changeTurn() //close pop_up and changeTurn() 
@@ -8,13 +9,15 @@ export default function changeTurn() //close pop_up and changeTurn()
     const teamSize = teams.length;
     let current = (turn + 1) % teamSize;
     chooseTeam(teams[current].team, teams);
-    turn = (turn + 1) % 3;
-    for (let i of turnButtons) i.classList.remove('--red', '--yellow', '--green', 'animation-changeColor');
+    turn = (turn + 1) % 4; 
+    for (let i of turnButtons) i.classList.remove('--red', '--blue', '--yellow','--green', 'animation-changeColor');
     switch (turn) {
-        case 0: turnButtons[0].classList.add('--red', 'animation-changeColor'); break;
-        case 1: turnButtons[1].classList.add('--yellow', 'animation-changeColor'); break;
-        case 2: turnButtons[2].classList.add('--green', 'animation-changeColor'); break;
+        case 0: turnButtons[0].classList.add(colorClass[0], 'animation-changeColor'); break;
+        case 1: turnButtons[1].classList.add(colorClass[1], 'animation-changeColor'); break;
+        case 2: turnButtons[2].classList.add(colorClass[2], 'animation-changeColor'); break;
+        case 3: turnButtons[3].classList.add(colorClass[3], 'animation-changeColor'); break;
     }
+    teams[current].teamID = current; 
     return teams[current]   //Tra ve doi hien tai de lay currentInfo 
 }
 function updateInfoTeam(button, currentTeam, idQuestion, scoreBonus = 10) {
