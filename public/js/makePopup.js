@@ -7,6 +7,7 @@ const modalWrapper = document.querySelector('.modal__wrapper')
 import changeTurn from "./turnAndScore.js";
 import { updateInfoTeam } from "./turnAndScore.js";
 const bar = document.getElementById('time-bar');
+let flagFirstTurn = 0 
 function modalQuestionHTMLMaker(content) {
     let ans = modalQuestion(content);
     return ans;
@@ -47,11 +48,15 @@ function markButton(button , currentTeam)
         case 3: button.classList.add(colorClass[3]); break; 
     }
 }
+let currentTeam = undefined; 
 export default function makePopup(buttonID, header, content, args, idQuestion, scoreBonus) //Bo sung them hai tham so idQuestion va score 
 {
     //console.log(buttonID); 
     //Tiêu đề câu hỏi: Câu hoi 1, câu hỏi 2, câu hỏi 3, câu hỏi 4,... 
-    let currentTeam = changeTurn();
+    if (!flagFirstTurn) {
+        flagFirstTurn = 1 
+        currentTeam = changeTurn() 
+    }
     console.log(currentTeam) 
     modal.classList.remove('--non-active');
     const modalHeader = document.querySelector('.modal__header');
@@ -98,6 +103,7 @@ export default function makePopup(buttonID, header, content, args, idQuestion, s
         modal.classList.add('--non-active')
         const percent = '100%'
         bar.style.transform = `scaleX(${percent})`;   //Thực hiện vẽ lại thời gian ban đầu cho dồng hồ 
+        currentTeam = changeTurn();
     }
 }
 //**

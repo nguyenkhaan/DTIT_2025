@@ -2,6 +2,7 @@ import makeQuestionBoard from "./36questions.js"
 import makeFooter from "./makeFooter.js"
 import makeNavbar from "./makeNavbar.js"
 import makeTeam from "./team.js"
+import { colorClass } from "./public.js"
 const body = document.querySelector('body')
 import questionLevelShow from "./questionLevelShow.js"
 /*--------------------------------------------1. BASE RENDER ---------------------------------------------*/
@@ -28,10 +29,10 @@ function addTeam(teams, team) {
     teams.push(obj)
 }
 //Tạo các team bằng hàm makeTeam 
-const team1 = makeTeam('Gozyuu Wolf', 0, 'red')
-const team2 = makeTeam('Gozyuu Leon', 0, 'blue')
-const team3 = makeTeam('Gozyuu Tyrano', 0, 'yellow')
-const team4 = makeTeam('Gozyuu Eagle', 0, 'green')
+const team1 = makeTeam('Gozyuu Wolf', 0, colorClass[0])
+const team2 = makeTeam('Gozyuu Leon', 0, colorClass[1])
+const team3 = makeTeam('Gozyuu Tyrano', 0, colorClass[2])
+const team4 = makeTeam('Gozyuu Eagle', 0, colorClass[3])
 // const team5 = makeTeam('Gozyuu Unicorn', 0, 'black')
 //Sau khi tạo các team thì thêm chung vào mảng theo cú pháp bên dưới 
 let teams = [];
