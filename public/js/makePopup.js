@@ -14,20 +14,25 @@ function modalQuestionAnsHTMLMaker(args) {
     return ans;
 }
 function startTimer(delay) {
-    const timerLabel = document.querySelector('.timer__label')
-
-    let time = delay;
-    timerLabel.innerText = ((time < 10) ? '0' : '') + time;
-    let intervalId = setInterval(function () {
-        --time;
-        timerLabel.innerText = ((time < 10) ? '0' : '') + time;
-
-        if (time == 0) {
-            modalWrapper.classList.add('end-time')
-            clearInterval(intervalId); // Thoát khỏi setInterval
-        }
-    }, 1000);
-}
+    const duration = delay;
+    let timeLeft = duration; 
+    const bar = document.getElementById('time-bar');
+  
+    function updateBar() {
+      const percent = timeLeft / duration;
+      bar.style.transform = `scaleX(${percent})`;
+  
+      if (timeLeft <= 0) {
+        setTimeout(() => {modalWrapper.classList.add('end-time')} , 1000); 
+        return;
+      }
+  
+      timeLeft--;
+      setTimeout(updateBar, 1000);
+    }
+  
+    updateBar();
+  }
 export default function makePopup(header, content, args, idQuestion, scoreBonus) //Bo sung them hai tham so idQuestion va score 
 {
     //Tiêu đề câu hỏi: Câu hoi 1, câu hỏi 2, câu hỏi 3, câu hỏi 4,... 
@@ -46,7 +51,7 @@ export default function makePopup(header, content, args, idQuestion, scoreBonus)
     if (scoreBonus == 10) delay = 1 //Câu dễ
     if (scoreBonus == 20) delay = 2 //Câu trung bình 
     if (scoreBonus == 30) delay = 3 //Câu khó 
-    startTimer(5) //Đếm thời gian câu hỏi 
+    startTimer(10) //Đếm thời gian câu hỏi 
     //Xử lí câu trả lời là đúng hay sai và ghi vào log 
     const trueButton = document.querySelector('.--true-button');
     const falseButton = document.querySelector('.--false-button');

@@ -37,6 +37,26 @@
             font-weight: 600;
             font-style: normal;
         }
+        @font-face { 
+            font-family:'digital-clock-font';
+            src: url('./public/images/digital_7.ttf');
+        }
+        .digital-clock-fonts {
+            font-family: 'digital-clock-font';
+        }
+        .glow {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4),
+                0 0 20px rgba(0, 255, 255, 0.3),
+               0 0 30px rgba(0, 255, 255, 0.2);
+        }  
+        @keyframes border-glow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }c
+
+        .before\:animate-border-glow::before {
+            animation: border-glow 6s linear infinite;
+        }    
     </style>
 </head>
 
@@ -84,7 +104,10 @@
     <div class="app__modal --non-active">
         <div class="modal__wrapper flex gap-4 max-w-[85%]">
 
-            <div class="modal__question">
+            <div class="modal__question relative">
+                <div class="absolute top-0 left-px w-full h-2 rounded-full bg-gray-800 overflow-hidden border-cyan-400/40">
+                    <div id="time-bar" class="h-full bg-white origin-right scale-x-100 w-full transition-transform duration-1000 ease-linear"></div>
+                      </div>
                 <div class="modal__header">
 
                 </div>
@@ -92,8 +115,17 @@
 
                     <!--Câu hỏi được render ở đây, tôi chỉ muốn câu hỏi thôi, câu trả lời và các cái khác thì được đẩy qua bên kia-->
                 </div>
+                <div class="modal__question__button">
+
+                    <button class="modal__button --true-button">
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </button>
+                    <button class="modal__button --false-button">
+                        <i class="fa-solid fa-thumbs-down"></i>
+                    </button>
+                </div>
             </div>
-            <div class="modal__question__sub-item">
+            <div class="modal__question__sub-item hidden">
                 <!--Cac lua chon duoc render o day-->
                 <div class="question__choice__wrapper"></div> <!--Render cai noi dung do vo day-->
                 <!--Button cho question-->

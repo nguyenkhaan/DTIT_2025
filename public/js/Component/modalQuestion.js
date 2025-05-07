@@ -3,5 +3,6 @@ export default function modalQuestion(content) {
         <p class = "question__box__question roboto-font">
             ${content}
         </p>
+       
     `
 }

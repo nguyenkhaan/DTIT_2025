@@ -1,6 +1,6 @@
 export default function makeMemeber(name, score, color = 'default') {
-    if (color != 'default') color = '--' + color; 
-    if (isNaN(String(score))) score = '###' 
+    if (color != 'default') color = '--' + color;
+    if (isNaN(String(score))) score = '###'
     return `
     <div class="member__wrapper">
         <div class="member__color ${color}"></div>
