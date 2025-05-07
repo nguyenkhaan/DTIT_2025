@@ -1,5 +1,5 @@
 export default function question_item(obj) {
-    return `<div class="question__col col l2" id = "question${obj.id}">${obj.id}
+    return `<div class="question__col question__item col l2 bg-white transition-all duration-200 ease-in-out" id = "question${obj.id}">${obj.id}
                 <span class = "level --non-active">${obj.level}</span>
     </div>`
 }

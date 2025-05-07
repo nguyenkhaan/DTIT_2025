@@ -13,26 +13,26 @@ function modalQuestionAnsHTMLMaker(args) {
     let ans = questionChoiceList(args);
     return ans;
 }
-function startTimer(delay) {
+function startTimer(delay) {   //Hàm đếm ngược thời gian 
     const duration = delay;
-    let timeLeft = duration; 
+    let timeLeft = duration;
     const bar = document.getElementById('time-bar');
-  
+
     function updateBar() {
-      const percent = timeLeft / duration;
-      bar.style.transform = `scaleX(${percent})`;
-  
-      if (timeLeft <= 0) {
-        setTimeout(() => {modalWrapper.classList.add('end-time')} , 1000); 
-        return;
-      }
-  
-      timeLeft--;
-      setTimeout(updateBar, 1000);
+        const percent = timeLeft / duration;    //Thời gian còn lại chia cho tổng thời gian sẽ ra phần trăm scale X còn lại 
+        bar.style.transform = `scaleX(${percent})`;   //Tính toàn phần trăm của scalX 
+
+        if (timeLeft <= 0) {
+            setTimeout(() => { modalWrapper.classList.add('end-time') }, 1000); //Hết thời gian thì cho modalWrapper animation lên xuống 
+            return;
+        }
+
+        timeLeft--;
+        setTimeout(updateBar, 1000);
     }
-  
+
     updateBar();
-  }
+}
 export default function makePopup(header, content, args, idQuestion, scoreBonus) //Bo sung them hai tham so idQuestion va score 
 {
     //Tiêu đề câu hỏi: Câu hoi 1, câu hỏi 2, câu hỏi 3, câu hỏi 4,... 
