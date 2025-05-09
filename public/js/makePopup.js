@@ -13,7 +13,7 @@ import hljs from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/bui
 import cpp from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/es/languages/cpp.min.js';
 
 const bar = document.getElementById('time-bar');
-let flagFirstTurn = 0 
+let flagFirstTurn = 0
 function modalQuestionHTMLMaker(content) {
     let ans = modalQuestion(content);
     return ans;
@@ -42,39 +42,38 @@ function startTimer(delay) {
 
     updateBar();
 }
-function markButton(button , currentTeam) 
-{
+function markButton(button, currentTeam) {
     button.onclick = null
     button.style.pointerEvents = "none"
     //Xử lí màu cho đội hiện tại nếu đội đó đã trả lời đúng 
     switch (currentTeam.teamID) {
-        case 0: button.classList.add(colorClass[0]); break; 
-        case 1: button.classList.add(colorClass[1]); break; 
-        case 2: button.classList.add(colorClass[2]); break; 
-        case 3: button.classList.add(colorClass[3]); break; 
+        case 0: button.classList.add(colorClass[0]); break;
+        case 1: button.classList.add(colorClass[1]); break;
+        case 2: button.classList.add(colorClass[2]); break;
+        case 3: button.classList.add(colorClass[3]); break;
     }
 }
-let currentTeam = undefined; 
+let currentTeam = undefined;
 export default function makePopup(buttonID, header, content, args, idQuestion, scoreBonus) //Bo sung them hai tham so idQuestion va score 
 {
     //console.log(buttonID); 
     //Tiêu đề câu hỏi: Câu hoi 1, câu hỏi 2, câu hỏi 3, câu hỏi 4,... 
     if (!flagFirstTurn) {
-        flagFirstTurn = 1 
-        currentTeam = changeTurn() 
+        flagFirstTurn = 1
+        currentTeam = changeTurn()
     }
-    console.log(currentTeam) 
+    console.log(currentTeam)
     modal.classList.remove('--non-active');
     const modalHeader = document.querySelector('.modal__header');
     modalHeader.innerHTML = modalHeading(header);
     //Xử lí nội dung câu hỏi -> render nội dung câu hỏi 
     const modalQues = document.querySelector('.modal__question__box');
     //modalQues.innerHTML = modalQuestionHTMLMaker(content)
-    modalQues.innerHTML = content 
+    modalQues.innerHTML = content
     //highlight codes 
     hljs.registerLanguage('cpp', cpp);
-        document.querySelectorAll('pre code').forEach((block) => {
-            hljs.highlightElement(block);
+    document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightElement(block);
     });
     //Xử lí nội dung câu trả lời -> render các câu trả lời 
     const modalQuesAns = document.querySelector('.question__choice__wrapper');
@@ -84,12 +83,12 @@ export default function makePopup(buttonID, header, content, args, idQuestion, s
     if (scoreBonus == 10) delay = 1 //Câu dễ
     if (scoreBonus == 20) delay = 2 //Câu trung bình 
     if (scoreBonus == 30) delay = 3 //Câu khó 
-    document.onkeydown = function(e) {
+    document.onkeydown = function (e) {
         if (e.key === 'Enter') {
-            startTimer(10); 
+            startTimer(10);
         }
     }
-    console.log(currentTeam) 
+    console.log(currentTeam)
     // startTimer(10); 
     //Đếm thời gian câu hỏi 
     //Xử lí câu trả lời là đúng hay sai và ghi vào log 
@@ -98,12 +97,12 @@ export default function makePopup(buttonID, header, content, args, idQuestion, s
     trueButton.onclick = function () {
         //Thêm hiệu ứng ấn vào button (maybe sẽ code sau, cái này hiện chưa code)
         //Tô màu cho cái button đã được nhấn ở đây 
-        markButton(buttonID , currentTeam) 
+        markButton(buttonID, currentTeam)
 
-       // updateInfoTeam(trueButton, currentTeam, idQuestion, scoreBonus);
+        // updateInfoTeam(trueButton, currentTeam, idQuestion, scoreBonus);
     }
     falseButton.onclick = function () {
-         
+
         //updateInfoTeam(falseButton, currentTeam, idQuestion, 0);
         //Sau này, muốn cậ nhât log story thì hãy mở comment 2 dòng lệnh này ở hai nút true và false button 
     }

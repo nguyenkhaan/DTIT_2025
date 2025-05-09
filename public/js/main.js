@@ -85,7 +85,7 @@ using namespace std;
 function handleQuestionButtonClick() {
     for (let i of questions) {
         i.onclick = () => {
-            
+
             const questionObj = randomQuestion(); //Hàm random question từ ngân hàng câu hỏi 
             makePopup(i, questionObj.header, questionObj.content, questionObj.choiceList, questionObj.id, questionObj.score);
             /*Ham hiển thị popUp câu hỏi 
