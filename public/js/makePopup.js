@@ -6,6 +6,12 @@ const modal = document.querySelector('.app__modal');
 const modalWrapper = document.querySelector('.modal__wrapper')
 import changeTurn from "./turnAndScore.js";
 import { updateInfoTeam } from "./turnAndScore.js";
+/* Dark theme code 
+import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/es/highlight.min.js';
+import cpp from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/es/languages/cpp.min.js';*/
+import hljs from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/es/highlight.min.js';
+import cpp from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/es/languages/cpp.min.js';
+
 const bar = document.getElementById('time-bar');
 let flagFirstTurn = 0 
 function modalQuestionHTMLMaker(content) {
@@ -63,7 +69,13 @@ export default function makePopup(buttonID, header, content, args, idQuestion, s
     modalHeader.innerHTML = modalHeading(header);
     //Xử lí nội dung câu hỏi -> render nội dung câu hỏi 
     const modalQues = document.querySelector('.modal__question__box');
-    modalQues.innerHTML = modalQuestionHTMLMaker(content)
+    //modalQues.innerHTML = modalQuestionHTMLMaker(content)
+    modalQues.innerHTML = content 
+    //highlight codes 
+    hljs.registerLanguage('cpp', cpp);
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightElement(block);
+    });
     //Xử lí nội dung câu trả lời -> render các câu trả lời 
     const modalQuesAns = document.querySelector('.question__choice__wrapper');
     modalQuesAns.innerHTML = modalQuestionAnsHTMLMaker(args);
