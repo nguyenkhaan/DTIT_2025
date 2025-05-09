@@ -72,8 +72,12 @@ Xin chào! Đây là một đoạn văn bản *in nghiêng*, **in đậm**, và 
 
 \`\`\`cpp
 // Đây là đoạn mã code block
-#include <bits/stdc++.h> 
+#include <bits/stdc++.h>
 using namespace std; 
+int main() 
+{
+    cout << "Hello world"; 
+}
 \`\`\`
 `);
     obj.choiceList = ['A. Gặp hàm exit()', 'A. Gặp hàm exit()', 'A. Gặp hàm exit()', 'A. Gặp hàm exit()'];

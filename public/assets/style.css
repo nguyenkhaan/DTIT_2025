@@ -41,6 +41,7 @@ html {
   overflow: hidden;
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
+  position: sticky; 
 }
 .app__navbar__header {
   display: flex;
@@ -180,6 +181,8 @@ html {
   color: var(--white-color);
   text-align: center;
   margin-top: 40px;
+  position: fixed; 
+  bottom: 0; 
 }
 .app__footer__content {
   max-width: 1200px;
@@ -204,6 +207,9 @@ html {
 /*CSS cho phan pop-up*/ 
 .modal__question__box {
   font-size: 1.8rem; 
+}
+.modal__question__box p {
+  font-size: 1.8rem !important; 
 }
 h1, h2, h3 {
   font-weight: bold;
