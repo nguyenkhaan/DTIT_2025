@@ -48,8 +48,38 @@ export { teams }
 function randomQuestion() {
     const obj = {};
     obj.header = 'Câu hỏi 1'
-    obj.content = 'Một process đang ở trạng thái running, nếu process này thực thi theo bộ lập lịch Round Robin, \
-                    nếu có sự kiện interrupt time slice xảy ra thì process này chuyển đến trạng thái nào?';
+    obj.content = marked.parse(`
+# Tiêu đề H1
+
+## Tiêu đề H2
+
+### Tiêu đề H3
+
+Xin chào! Đây là một đoạn văn bản *in nghiêng*, **in đậm**, và ***in nghiêng + đậm***.
+
+---
+
+- Danh sách không thứ tự:
+  - Mục 1
+  - Mục 2
+    - Mục con 2.1
+
+1. Danh sách có thứ tự:
+   1. Bước một
+   2. Bước hai
+
+> Đây là một trích dẫn.
+
+\`\`\`cpp
+// Đây là đoạn mã code block
+#include <bits/stdc++.h>
+using namespace std; 
+int main() 
+{
+    cout << "Hello world"; 
+}
+\`\`\`
+`);
     obj.choiceList = ['A. Gặp hàm exit()', 'A. Gặp hàm exit()', 'A. Gặp hàm exit()', 'A. Gặp hàm exit()'];
     obj.id = 1;     //Mã câu hỏi 
     obj.score = 10; //Điểm số của câu hỏi 
@@ -59,6 +89,7 @@ function randomQuestion() {
 function handleQuestionButtonClick() {
     for (let i of questions) {
         i.onclick = () => {
+
             const questionObj = randomQuestion(); //Hàm random question từ ngân hàng câu hỏi 
             makePopup(i, questionObj.header, questionObj.content, questionObj.choiceList, questionObj.id, questionObj.score);
             /*Ham hiển thị popUp câu hỏi 

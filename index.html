@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/assets/base.css">
-    <link rel="stylesheet" href="./public/assets/style.css">
+    <!--fonts-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,7 +13,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <!--tailwind-->
     <link rel="stylesheet" href="./src/output.css">
+    <!--Thu vien highlight code, hightligh.js-->
+             <!-- Dark theme
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css">  -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+    <!--markdown-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.7/marked.min.js"
+        integrity="sha512-rPuOZPx/WHMHNx2RoALKwiCDiDrCo4ekUctyTYKzBo8NGA79NcTW2gfrbcCL2RYL7RdjX2v9zR0fKyI4U4kPew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--CSS-->
+    <link rel="stylesheet" href="./public/assets/base.css">
+    <link rel="stylesheet" href="./public/assets/style.css">
+
     <title>Đấu trường IT 2025</title>
     <style>
         .roboto-font {
@@ -94,10 +107,10 @@
                 <div class="app__turn-board --section__board">
                     <h2 class="turn-board__heading roboto-font">TURN</h2>
                     <div class="turn__butoon__wrapper">
-                        <button class="app__turn__button --default-color --red"></button>
-                        <button class="app__turn__button --default-color"></button>
-                        <button class="app__turn__button --default-color"></button>
-                        <button class="app__turn__button --default-color"></button>
+                        <button class="app__turn__button relative --default-color --red"><i class="absolute text-red-800 fa-brands fa-wolf-pack-battalion text-4xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i></button>
+                        <button class="app__turn__button relative --default-color"><i class="absolute text-blue-800 fa-solid fa-dragon text-4xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i></button>
+                        <button class="app__turn__button relative --default-color"><i class="absolute text-yellow-800 fa-solid fa-worm text-4xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i></button>
+                        <button class="app__turn__button --default-color relative"><i class="absolute text-green-800 fa-solid fa-feather text-4xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i></button>
                     </div>
                 </div>
                 <div class="app__member-board  --section__board">
@@ -113,7 +126,7 @@
 
     <div class="app__modal relative --non-active">
         <img src="./public/images/enter.png" alt="" class="absolute m-5 top-0 animate-pulse left-0 modal__image w-40">
-        <div class="modal__wrapper flex gap-4 max-w-[85%]">
+        <div class="modal__wrapper flex gap-4 max-w-[90%]">
 
             <div class="modal__question relative">
                 <div
@@ -155,7 +168,10 @@
             </div>
         </div>
     </div>
-    <script type="module" defer src="./public/js/main.js"></script>
+
+    </script>
+    <script type="module" src="./public/js/main.js"></script>
+
 </body>
 
 </html>
