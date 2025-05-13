@@ -79,10 +79,20 @@
         c .before\:animate-border-glow::before {
             animation: border-glow 6s linear infinite;
         }
+        canvas#confetti {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            z-index: 1000;
+            pointer-events: none;
+        }
     </style>
 </head>
 
 <body>
+    <canvas id="confetti"></canvas>
     <nav class="app__navbar">
         <div class="grid wide" style="width: 1200px">
             <div class="app__navbar__header">
@@ -170,6 +180,7 @@
     </div>
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
     <script type="module" src="./public/js/main.js"></script>
 
 </body>

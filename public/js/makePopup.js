@@ -11,6 +11,8 @@ import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/es/
 import cpp from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/es/languages/cpp.min.js';*/
 import hljs from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/es/highlight.min.js';
 import cpp from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/es/languages/cpp.min.js';
+const canvas = document.querySelector('#confetti');
+const jsConfetti = new JSConfetti();
 
 const bar = document.getElementById('time-bar');
 let flagFirstTurn = 0
@@ -119,13 +121,40 @@ export default function makePopup(buttonID, header, content, args, idQuestion, s
     const falseButton = document.querySelector('.--false-button');
     trueButton.onclick = function () {
         //Thêm hiệu ứng ấn vào button (maybe sẽ code sau, cái này hiện chưa code)
+        jsConfetti.addConfetti({
+        emojis: ['🌞', '🌈', '✨', '😄', '🌟', '🥰', '☀️', '💖', '🎉', '🦋', '🫶', '😇', '💫'],
+        })
+         jsConfetti.addConfetti({
+        emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸' , '😃' , '☁️' , '💥'],
+        }).then(() => jsConfetti.addConfetti()).then(() => jsConfetti.addConfetti()).then(() => jsConfetti.addConfetti()).then(() => jsConfetti.addConfetti())
         //Tô màu cho cái button đã được nhấn ở đây 
         markTrueButton(buttonID, currentColor)
-
         // updateInfoTeam(trueButton, currentTeam, idQuestion, scoreBonus);
     }
     falseButton.onclick = function () {
+        jsConfetti.addConfetti({
+        emojis: ['🏳️', '💀' , '💢'],
+        })
+        setTimeout(
+            function() {
+                 jsConfetti.addConfetti({
+                    emojis : ['🏳️', '💀'], 
 
+                })
+                 jsConfetti.addConfetti({
+                    emojis : ['🏳️' , '👿'], 
+
+                })
+                jsConfetti.addConfetti({
+                    emojis :['🏳️', '🫠', '😡'], 
+
+                })
+                jsConfetti.addConfetti({
+                emojis: ['🏳️', '💀' , '💢'],
+                })
+            }, 550
+            
+        );     
         markFalseButton(buttonID , currentColor); 
         //updateInfoTeam(falseButton, currentTeam, idQuestion, 0);
         //Sau này, muốn cậ nhât log story thì hãy mở comment 2 dòng lệnh này ở hai nút true và false button 
