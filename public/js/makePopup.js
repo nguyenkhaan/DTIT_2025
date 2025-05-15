@@ -6,6 +6,8 @@ const modal = document.querySelector('.app__modal');
 const modalWrapper = document.querySelector('.modal__wrapper')
 import changeTurn from "./turnAndScore.js";
 import { updateInfoTeam } from "./turnAndScore.js";
+import modalQuestionAnsHTMLMaker from "./answerShow.js";
+
 /* Dark theme code 
 import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/es/highlight.min.js';
 import cpp from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/es/languages/cpp.min.js';*/
@@ -13,17 +15,11 @@ import hljs from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/bui
 import cpp from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/es/languages/cpp.min.js';
 const canvas = document.querySelector('#confetti');
 const jsConfetti = new JSConfetti();
-
 const bar = document.getElementById('time-bar');
+const showAnswerButton = document.querySelector('.show--answer'); 
+const answerBox = document.querySelector('.question__box__answer'); 
 let flagFirstTurn = 0
-function modalQuestionHTMLMaker(content) {
-    let ans = modalQuestion(content);
-    return ans;
-}
-function modalQuestionAnsHTMLMaker(args) {
-    let ans = questionChoiceList(args);
-    return ans;
-}
+let flagTimer = 0;  
 let timeoutId = null; // Biến toàn cục hoặc được dùng chung để quản lý hủy timeout
 
 function startTimer(delay) {
@@ -101,9 +97,12 @@ export default function makePopup(buttonID, header, content, args, idQuestion, s
     document.querySelectorAll('pre code').forEach((block) => {
         hljs.highlightElement(block);
     });
-    //Xử lí nội dung câu trả lời -> render các câu trả lời 
-    const modalQuesAns = document.querySelector('.question__choice__wrapper');
-    modalQuesAns.innerHTML = modalQuestionAnsHTMLMaker(args);
+    //Xử lí nội dung câu trả lời -> render câu trả lời  
+    showAnswerButton.onclick = function() {
+       
+        answerBox.style.display = 'block'; 
+        modalQuestionAnsHTMLMaker(args); 
+    }
     //Dựa vào scoreBonus để tính thời gian delay (sẽ code sau)
     let delay;
     if (scoreBonus == 10) delay = 1 //Câu dễ
@@ -111,7 +110,10 @@ export default function makePopup(buttonID, header, content, args, idQuestion, s
     if (scoreBonus == 30) delay = 3 //Câu khó 
     document.onkeydown = function(e) {
         if (e.key === 'Enter') {
-            startTimer(10); 
+            if (!flagTimer) {
+                startTimer(10); 
+                flagTimer = 1; 
+            } 
         }
     }
     // startTimer(10); 
@@ -169,6 +171,7 @@ export default function makePopup(buttonID, header, content, args, idQuestion, s
         const percent = '100%'
         bar.style.transform = `scaleX(${percent})`;   //Thực hiện vẽ lại thời gian ban đầu cho dồng hồ 
         currentTeam = changeTurn();
+         answerBox.style.display = 'none'; 
         flagTimer = 0 
     }
 }

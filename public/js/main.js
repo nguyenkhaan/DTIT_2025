@@ -5,7 +5,7 @@ import makeTeam from "./team.js"
 import { colorClass } from "./public.js"
 const body = document.querySelector('body')
 import questionLevelShow from "./questionLevelShow.js"
-
+import { questionData , answerData } from "../../Data/main.js"
 /*--------------------------------------------1. BASE RENDER ---------------------------------------------*/
 //Hiển thị các thành phần cơ bản: navbar, footer !!! No Touch !!
 function baseRender() {
@@ -46,11 +46,11 @@ export { teams }
 /*------------------------------------------------4. XỬ LÍ CÁC CÂU HỎI ---------------------------------------------------------*/
 //Hàm random câu hỏi từ ngân hàng câu hỏi.  
 //Return 1 obj gồm header (tiêu đề câu hỏi), content (Nội dung câu hỏi), choiceList (các lựa chọn A, B, C, D), id (mã câu hỏi), score (điểm số câu hỏi đó)
-function randomQuestion() {
+function randomQuestion(contentQuestion , contentAnswer) {
     const obj = {};
     obj.header = 'Câu hỏi 1'
-    obj.content = marked.parse(`#Heading 1`);
-    obj.choiceList = ['A. Gặp hàm exit()', 'A. Gặp hàm exit()', 'A. Gặp hàm exit()', 'A. Gặp hàm exit()'];
+    obj.content = marked.parse(contentQuestion);
+    obj.answer = marked.parse(contentAnswer); 
     obj.id = 1;     //Mã câu hỏi 
     obj.score = 10; //Điểm số của câu hỏi 
     return obj;
@@ -59,9 +59,9 @@ function randomQuestion() {
 function handleQuestionButtonClick() {
     for (let i of questions) {
         i.onclick = () => {
-
-            const questionObj = randomQuestion(); //Hàm random question từ ngân hàng câu hỏi 
-            makePopup(i, questionObj.header, questionObj.content, questionObj.choiceList, questionObj.id, questionObj.score);
+            let questionIDString = Number(i.id) 
+            const questionObj = randomQuestion(questionData[questionIDString - 1] , answerData[questionIDString - 1]); //Hàm random question từ ngân hàng câu hỏi 
+            makePopup(i, questionObj.header, questionObj.content, questionObj.answer, questionObj.id, questionObj.score);
             /*Ham hiển thị popUp câu hỏi 
                 - Đối số 1: Tiêu đề câu hỏi (Ex: Câu hỏi khó, dễ, trung bình...) 
                 - Đối số 2: Nội dung câu hỏi 
