@@ -5,6 +5,7 @@ import makeTeam from "./team.js"
 import { colorClass } from "./public.js"
 const body = document.querySelector('body')
 import questionLevelShow from "./questionLevelShow.js"
+
 /*--------------------------------------------1. BASE RENDER ---------------------------------------------*/
 //Hiển thị các thành phần cơ bản: navbar, footer !!! No Touch !!
 function baseRender() {
@@ -48,38 +49,7 @@ export { teams }
 function randomQuestion() {
     const obj = {};
     obj.header = 'Câu hỏi 1'
-    obj.content = marked.parse(`
-# Tiêu đề H1
-
-## Tiêu đề H2
-
-### Tiêu đề H3
-
-Xin chào! Đây là một đoạn văn bản *in nghiêng*, **in đậm**, và ***in nghiêng + đậm***.
-
----
-
-- Danh sách không thứ tự:
-  - Mục 1
-  - Mục 2
-    - Mục con 2.1
-
-1. Danh sách có thứ tự:
-   1. Bước một
-   2. Bước hai
-
-> Đây là một trích dẫn.
-
-\`\`\`cpp
-// Đây là đoạn mã code block
-#include <bits/stdc++.h>
-using namespace std; 
-int main() 
-{
-    cout << "Hello world"; 
-}
-\`\`\`
-`);
+    obj.content = marked.parse(`#Heading 1`);
     obj.choiceList = ['A. Gặp hàm exit()', 'A. Gặp hàm exit()', 'A. Gặp hàm exit()', 'A. Gặp hàm exit()'];
     obj.id = 1;     //Mã câu hỏi 
     obj.score = 10; //Điểm số của câu hỏi 

@@ -1,52 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.7/marked.min.js" integrity="sha512-rPuOZPx/WHMHNx2RoALKwiCDiDrCo4ekUctyTYKzBo8NGA79NcTW2gfrbcCL2RYL7RdjX2v9zR0fKyI4U4kPew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.7/marked.min.js" integrity="sha512-rPuOZPx/WHMHNx2RoALKwiCDiDrCo4ekUctyTYKzBo8NGA79NcTW2gfrbcCL2RYL7RdjX2v9zR0fKyI4U4kPew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <meta charset="UTF-8">
+  <title>Smooth Scroll Test</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .section {
+      height: 100vh;
+    }
+    .target {
+      background-color: lightblue;
+      height: 100vh;
+    }
+  </style>
 </head>
 <body>
-    <div id="output">
+  <div class="section">
+    <a href="#target">Go to Section</a>
+  </div>
 
-    </div>
-    <script>
-            const markdown = `
-# Tiêu đề H1
-
-## Tiêu đề H2
-
-### Tiêu đề H3
-
-Xin chào! Đây là một đoạn văn bản *in nghiêng*, **in đậm**, và ***in nghiêng + đậm***.
-
----
-
-- Danh sách không thứ tự:
-  - Mục 1
-  - Mục 2
-    - Mục con 2.1
-
-1. Danh sách có thứ tự:
-   1. Bước một
-   2. Bước hai
-
-> Đây là một trích dẫn.
-
-\`\`\`cpp
-// Đây là đoạn mã code block C++
-#include <bits/stdc++.h>
-using namespace std;
-
-\`\`\`
-    `;
-
-    // Convert markdown to HTML and inject it
-    document.getElementById("output").innerHTML = marked.parse(markdown);
-  </script>
-    </script>
+  <div id="target" class="target">
+    You've reached the section!
+  </div>
 </body>
 </html>

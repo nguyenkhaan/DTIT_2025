@@ -43,6 +43,7 @@ html {
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
   position: sticky; 
+  display: none; 
   
 }
 .app__navbar__header {
@@ -94,7 +95,18 @@ html {
   color: var(--hover-color);
   transform: translateX(5px);
 }
-
+/*Home page*/ 
+.home__page {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+} 
+.home_page__image {
+  width: 1072px; 
+  cursor: pointer; 
+  animation: end-time 2s linear alternate infinite, 
+  fade 1.4s linear alternate infinite; 
+}
 /* Section - Nội dung */
 .app__section {
   display: flex;
@@ -102,7 +114,7 @@ html {
   gap: 32px;
   opacity: 0;
   animation: fadeIn 1s ease-in-out 0.5s forwards;
-  margin-bottom: 28px; 
+  margin-bottom: 28px 0; 
 }
 .question__col {
   width: 100%;
@@ -181,8 +193,7 @@ html {
   padding: 12px 0;
   color: var(--white-color);
   text-align: center;
-  margin-top: 20px;
-  position: fixed; 
+  margin-top: 52px; 
   bottom: 0; 
 }
 .app__footer__content {
@@ -463,5 +474,13 @@ p {
   }
   to {
     transform: translateY(16px);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 1; 
+  } 
+  to {
+    opacity: 0.6;
   }
 }

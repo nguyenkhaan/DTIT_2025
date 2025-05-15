@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class = "scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="./public/assets/style.css">
 
     <title>Đấu trường IT 2025</title>
+    <script src = ""></script>
     <style>
         .roboto-font {
             font-family: "Roboto", sans-serif;
@@ -88,12 +89,43 @@
             z-index: 1000;
             pointer-events: none;
         }
+        html {
+            scroll-behavior: auto;
+        }
     </style>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <!--Scroll effect Src: W3School https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_smooth_scroll-->
+    <script>
+    $(document).ready(function(){
+      // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+
+          // Store hash
+          var hash = this.hash;
+
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 1200, function(){
+
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+    });
+    </script> 
 </head>
 
 <body>
     <canvas id="confetti"></canvas>
-    <nav class="app__navbar">
+    <nav class="app__navbar hidden">
         <div class="grid wide" style="width: 1200px">
             <div class="app__navbar__header">
                 <div class="app__logo"></div>
@@ -102,8 +134,14 @@
             </div>
         </div>
     </nav>
+    <div class="home__page wide grid h-[100vh] mb-10" style ="width: 1200px;">
+        <a href="#body__section" class="home__page__link">
+             <img src="./public/images/LOGO DTIT.png" class = "home_page__image animate-pulse shadow-2xl">
+        </a>
+       
+    </div>
     <!--main body here-->
-    <div class="app__section grid wide " style="width: 100%">
+    <div id = "body__section" class="app__section grid wide " style="width: 100%">
         <section class="row gutter max-md:flex max-md:flex-col max-md:w-full">
             <div class="app__question-board col l8 --section__board">
                 <h2 class="question-board__heading roboto-font">MAIN BOARD<i class="fa-solid fa-circle-question"></i>
