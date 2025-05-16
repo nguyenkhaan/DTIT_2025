@@ -128,7 +128,7 @@ export default function makePopup(buttonID, header, content, args, idQuestion, s
         })
          jsConfetti.addConfetti({
         emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸' , '😃' , '☁️' , '💥'],
-        }).then(() => jsConfetti.addConfetti()).then(() => jsConfetti.addConfetti()).then(() => jsConfetti.addConfetti()) 
+        }).then(() => jsConfetti.addConfetti()).then(() => jsConfetti.addConfetti())
         //Tô màu cho cái button đã được nhấn ở đây 
         markTrueButton(buttonID, currentColor)
         // updateInfoTeam(trueButton, currentTeam, idQuestion, scoreBonus);
